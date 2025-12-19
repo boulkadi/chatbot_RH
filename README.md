@@ -8,7 +8,7 @@
 Install uv (Powershell):
 
 ```bash
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"```
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 ## Setup (first time)
@@ -43,4 +43,5 @@ uv add --dev <package>
 
 ```bash
 streamlit run src\ui\streamlit_app.py```
+
 
