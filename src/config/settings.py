@@ -17,12 +17,12 @@ class Settings(BaseSettings):
     
     @property
     def csv_full_path(self) -> Path:
-        """Chemin complet du CSV (compatible Windows)"""
+        """Chemin complet du CSV """
         return self.BASE_DIR / self.DATA_CSV_PATH
     
     @property
     def vectorstore_full_path(self) -> Path:
-        """Chemin complet du vectorstore (compatible Windows)"""
+        """Chemin complet du vectorstore """
         return self.BASE_DIR / self.VECTORSTORE_PATH
     
     # ============================================
