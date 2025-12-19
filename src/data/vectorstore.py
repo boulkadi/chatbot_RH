@@ -36,7 +36,7 @@ class RHVectorStore:
         self.persist_directory.mkdir(parents=True, exist_ok=True)
         
         # Initialiser les embeddings
-        print(f"🔧 Initialisation des embeddings: {self.embeddings_model}")
+        print(f" Initialisation des embeddings: {self.embeddings_model}")
         self.embeddings = HuggingFaceEmbeddings(
             model_name=self.embeddings_model
         )
@@ -59,14 +59,14 @@ class RHVectorStore:
             Instance FAISS du vectorstore
         """
         try:
-            print(f"🔨 Création du vectorstore avec {len(documents)} documents...")
+            print(f" Création du vectorstore avec {len(documents)} documents...")
             
             self.vectorstore = FAISS.from_documents(
                 documents=documents,
                 embedding=self.embeddings
             )
             
-            print("✅ Vectorstore créé avec succès")
+            print("Vectorstore créé avec succès")
             
             if save:
                 self.save()
@@ -97,7 +97,7 @@ class RHVectorStore:
                     f"Vectorstore non trouvé dans: {self.persist_directory}"
                 )
             
-            print(f"📂 Chargement du vectorstore depuis: {self.persist_directory}")
+            print(f" Chargement du vectorstore depuis: {self.persist_directory}")
             
             self.vectorstore = FAISS.load_local(
                 folder_path=str(self.persist_directory),
@@ -105,7 +105,7 @@ class RHVectorStore:
                 allow_dangerous_deserialization=True  # Nécessaire pour FAISS
             )
             
-            print("✅ Vectorstore chargé avec succès")
+            print(" Vectorstore chargé avec succès")
             return self.vectorstore
             
         except FileNotFoundError as e:
@@ -133,13 +133,13 @@ class RHVectorStore:
             )
         
         try:
-            print(f"💾 Sauvegarde du vectorstore dans: {self.persist_directory}")
+            print(f" Sauvegarde du vectorstore dans: {self.persist_directory}")
             
             self.vectorstore.save_local(
                 folder_path=str(self.persist_directory)
             )
             
-            print("✅ Vectorstore sauvegardé avec succès")
+            print(" Vectorstore sauvegardé avec succès")
             
         except Exception as e:
             raise VectorStoreError(
@@ -201,11 +201,11 @@ class RHVectorStore:
         
         # Si existe et pas de recréation forcée, charger
         if index_path.exists() and not force_recreate:
-            print("📂 Vectorstore existant détecté, chargement...")
+            print("Vectorstore existant détecté, chargement...")
             return self.load()
         
         # Sinon, créer depuis les données CSV
-        print("🔨 Création d'un nouveau vectorstore...")
+        print(" Création d'un nouveau vectorstore...")
         
         # Charger les données
         loader = RHDataLoader()
@@ -230,7 +230,7 @@ class RHVectorStore:
         
         try:
             self.vectorstore.add_documents(documents)
-            print(f"✅ {len(documents)} documents ajoutés")
+            print(f" {len(documents)} documents ajoutés")
             
         except Exception as e:
             raise VectorStoreError(
@@ -244,10 +244,10 @@ class RHVectorStore:
             
             if self.persist_directory.exists():
                 shutil.rmtree(self.persist_directory)
-                print(f"🗑️ Vectorstore supprimé: {self.persist_directory}")
+                print(f" Vectorstore supprimé: {self.persist_directory}")
                 self.vectorstore = None
             else:
-                print("⚠️ Aucun vectorstore à supprimer")
+                print(" Aucun vectorstore à supprimer")
                 
         except Exception as e:
             raise VectorStoreError(
@@ -287,7 +287,7 @@ if __name__ == "__main__":
         vectorstore = vs.get_or_create(force_recreate=False)
         
         # Test de recherche
-        print("\n🔍 Test de recherche:")
+        print("\n Test de recherche:")
         query = "congés payés CDI"
         results = vs.search(
             query=query,

@@ -11,9 +11,6 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     """Configuration de l'application RH Assistant"""
     
-    # ============================================
-    # PATHS - Adaptés pour Windows
-    # ============================================
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
     DATA_CSV_PATH: str = "data/RH_infos.csv"
     VECTORSTORE_PATH: str = "data/vectorstore"
@@ -125,6 +122,6 @@ settings = Settings()
 # Validation au démarrage
 try:
     settings.validate_paths()
-    print(f"✅ Configuration chargée avec succès: {settings}")
+    print(f" Configuration chargée avec succès: {settings}")
 except Exception as e:
-    print(f"⚠️ Avertissement de configuration: {e}")
+    print(f" Avertissement de configuration: {e}")

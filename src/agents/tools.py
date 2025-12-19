@@ -23,9 +23,9 @@ class RHTools:
     def _initialize_vectorstore(self):
         """Initialise ou charge le vectorstore"""
         try:
-            print("🔧 Initialisation du vectorstore pour les outils...")
+            print(" Initialisation du vectorstore pour les outils...")
             self.vectorstore = get_vectorstore(force_recreate=False)
-            print("✅ Vectorstore prêt")
+            print(" Vectorstore prêt")
         except Exception as e:
             print(f"❌ Erreur initialisation vectorstore: {e}")
             raise

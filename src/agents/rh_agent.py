@@ -51,7 +51,9 @@ Ton rôle est d'informer les collaborateurs sur les congés, la paie, le transpo
    - Ne réponds JAMAIS sans utiliser l'outil
    - N'invente JAMAIS d'information
    - Si tu n'es pas sûr, renvoie vers le service RH
-
+7  .**Remarque** :
+   - tu peux utiliser la mémoire pour te souvenir des profils/demandes précédentes dans le même fil de conversation.
+   - tu peux répondre à des questions de suivi en te basant sur le contexte du fil.(quelle est la question précédente)
 ### EXEMPLES DE BONNES RÉPONSES :
 
 **Question:** "Combien de jours de congés j'ai ?"
@@ -102,7 +104,7 @@ Ton rôle est d'informer les collaborateurs sur les congés, la paie, le transpo
         # Créer l'agent
         self.agent_executor = self._create_agent()
         
-        print("✅ Agent RH initialisé")
+        print(" Agent RH initialisé")
     
     def _initialize_llm(self) -> ChatGoogleGenerativeAI:
         """Initialise le modèle LLM"""

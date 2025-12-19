@@ -21,21 +21,21 @@ from src.core.exceptions import RHAssistantException, handle_exception
 async def lifespan(app: FastAPI):
     """Gestion du cycle de vie de l'application"""
     # Startup
-    print("🚀 Démarrage de l'API RH Assistant...")
+    print(" Démarrage de l'API RH Assistant...")
     
     try:
         # Initialiser l'agent au démarrage
         agent = get_rh_agent()
-        print("✅ Agent RH initialisé")
+        print(" Agent RH initialisé")
         
     except Exception as e:
-        print(f"❌ Erreur d'initialisation: {e}")
+        print(f" Erreur d'initialisation: {e}")
         raise
     
     yield
     
     # Shutdown
-    print("🛑 Arrêt de l'API...")
+    print(" Arrêt de l'API...")
 
 
 # ============================================

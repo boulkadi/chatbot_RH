@@ -145,7 +145,7 @@ class RHDataLoader:
                 Document(page_content=page_content, metadata=metadata)
             )
         
-        print(f"📄 {len(documents)} documents créés pour le vectorstore")
+        print(f" {len(documents)} documents créés pour le vectorstore")
         return documents
     
     def to_json(self, output_path: Path = None) -> str:
