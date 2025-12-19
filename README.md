@@ -5,10 +5,10 @@
 - Python `>=3.12,<3.14`
 - `uv` installed
 
-Install uv (one option):
+Install uv (Powershell):
 
 ```bash
-pip install uv
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"```
 ```
 
 ## Setup (first time)
@@ -43,3 +43,4 @@ uv add --dev <package>
 
 ```bash
 streamlit run src\ui\streamlit_app.py```
+
