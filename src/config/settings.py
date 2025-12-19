@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     # LLM CONFIGURATION
     # ============================================
     LLM_MODEL: str = "gemini-2.5-flash"
-    LLM_TEMPERATURE: float = 0.5
+    LLM_TEMPERATURE: float = 0.7
     SUMMARIZATION_MODEL: str = "gemini-2.5-flash"
     
     # ============================================

@@ -15,6 +15,9 @@ from src.agents.rh_agent import get_rh_agent
 from src.core.models import UserQuery
 from src.config.settings import settings
 
+from src.data.vectorstore import get_vectorstore
+
+
 
 # ============================================
 # CONFIGURATION DE LA PAGE
@@ -75,6 +78,12 @@ def initialize_session():
     
     if "thread_id" not in st.session_state:
         st.session_state.thread_id = f"session_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+
+    #  PRÉCHARGEMENT FAISS
+    if "vectorstore_ready" not in st.session_state:
+        with st.spinner(" Chargement de la base de connaissances RH..."):
+            get_vectorstore()
+        st.session_state.vectorstore_ready = True
     
     if "agent" not in st.session_state:
         with st.spinner("🔧 Initialisation de l'assistant RH..."):

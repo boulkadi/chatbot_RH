@@ -14,6 +14,9 @@ from src.config.settings import settings
 from src.core.exceptions import VectorStoreError
 from src.data.loader import RHDataLoader
 
+import streamlit as st
+
+
 
 class RHVectorStore:
     """Gestion centralisée du vectorstore FAISS"""
@@ -101,7 +104,7 @@ class RHVectorStore:
 
 _VECTORSTORE_INSTANCE: Optional[RHVectorStore] = None
 
-
+@st.cache_resource(show_spinner=" Chargement de la base RH...")
 def get_vectorstore(force_recreate: bool = False) -> RHVectorStore:
     global _VECTORSTORE_INSTANCE
 
